@@ -125,6 +125,14 @@ function build(){
     fi
 }
 
+function compile_multiple(){
+    g++ -std=c++17 -Wshadow -Wall "$@" -02 -Wno-unused-result
+}
+
+function build_multiple(){
+    g++ -std=c++17 -Wshadow -Wall "$@" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
+}
+
 function zle-line-init zle-keymap-select {
     VIM_NORMAL_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
     VIM_INSERT_PROMPT="%{$fg_bold[green]%} [% INSERT]%  %{$reset_color%}"
@@ -137,4 +145,6 @@ zle -N zle-keymap-select
 
 alias python=python3
 
-export PATH="$HOME/.local/bin:$HOME/.poetry/bin:$PATH"
+alias vim=nvim
+
+source <(kubectl completion zsh)

@@ -1,3 +1,7 @@
+export EDITOR="vim"
+
+export PATH="$HOME/.local/bin:$HOME/.poetry/bin:$PATH:/snap/bin"
+
 # From https://github.com/nickjj/dotfiles
 # Ensure Docker is running on WSL 2. This expects you've installed Docker and
 # Docker Compose directly within your WSL distro instead of Docker Desktop, such as:
