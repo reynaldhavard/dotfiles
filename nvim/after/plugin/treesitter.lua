@@ -1,15 +1,19 @@
 require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "help", "query", "javascript", "cpp", "bash", "python" },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-
-  highlight = {
+  yati = {
     enable = true,
+
+    -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
+    default_lazy = true,
+
+    -- Determine the fallback method used when we cannot calculate indent by tree-sitter
+    --   "auto": fallback to vim auto indent
+    --   "asis": use current indent as-is
+    --   "cindent": see `:h cindent()`
+    -- Or a custom function return the final indent result.
+    default_fallback = "auto"
   },
+  indent = {
+    enable = false -- disable builtin indent module
+  }
 }
+

@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 
     use( 'nvim-treesitter/nvim-treesitter', {run = 'TSUpdate'})
     use( 'nvim-treesitter/playground')
+    use({ "yioneko/nvim-yati", tag = "*", requires = "nvim-treesitter/nvim-treesitter" })
     use( 'mbbill/undotree')
     use( 'tpope/vim-fugitive')
     use ({
@@ -47,6 +48,10 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'}, -- Optional
         }
     })
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
     use { "alexghergh/nvim-tmux-navigation" }
     use {
         'numToStr/Comment.nvim',
