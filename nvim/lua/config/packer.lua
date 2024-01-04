@@ -47,6 +47,11 @@ return require('packer').startup(function(use)
         }
     })
     use {
+        'creativenull/efmls-configs-nvim',
+        tag = 'v1.*', -- tag is optional, but recommended
+        requires = { 'neovim/nvim-lspconfig' },
+    }
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }

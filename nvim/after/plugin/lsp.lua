@@ -50,3 +50,48 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+require "lspconfig".efm.setup {
+    init_options = {documentFormatting = true},
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            bash = {
+                require('efmls-configs.formatters.shfmt'),
+            },
+            cmake = {
+                require('efmls-configs.formatters.gersemi'),
+            },
+            cpp = {
+                require('efmls-configs.formatters.clang_format'),
+            },
+            css = {
+                require('efmls-configs.formatters.prettier'),
+            },
+            html = {
+                require('efmls-configs.formatters.prettier'),
+            },
+            json = {
+                require('efmls-configs.formatters.prettier'),
+            },
+            markdown = {
+                require('efmls-configs.formatters.prettier'),
+            },
+            lua = {
+                require('efmls-configs.formatters.lua_format'),
+            },
+            python = {
+                require('efmls-configs.formatters.black'),
+            },
+            sh = {
+                require('efmls-configs.formatters.shfmt'),
+            },
+            sql = {
+                require('efmls-configs.formatters.sql-formatter'),
+            },
+            yaml = {
+                require('efmls-configs.formatters.prettier'),
+            }
+        }
+    }
+}
