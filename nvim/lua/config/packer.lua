@@ -22,8 +22,6 @@ return require('packer').startup(function(use)
     })
 
     use( 'nvim-treesitter/nvim-treesitter', {run = 'TSUpdate'})
-    use( 'nvim-treesitter/playground')
-    use({ "yioneko/nvim-yati", tag = "*", requires = "nvim-treesitter/nvim-treesitter" })
     use( 'mbbill/undotree')
     use( 'tpope/vim-fugitive')
     use ({
