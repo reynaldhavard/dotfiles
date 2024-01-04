@@ -107,32 +107,6 @@ function chpwd(){
     ls -a
 }
 
-function compile(){
-    if [ -z $2 ]
-    then
-        g++ -std=c++17 -Wshadow -Wall "$1" -O2 -Wno-unused-result
-    else
-        g++ -std=c++17 -Wshadow -Wall -o "$2" "$1" -O2 -Wno-unused-result
-    fi
-}
-
-function build(){
-    if [ -z $2 ]
-    then
-        g++ -std=c++17 -Wshadow -Wall "$1" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
-    else
-        g++ -std=c++17 -Wshadow -Wall -o "$2" "$1" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
-    fi
-}
-
-function compile_multiple(){
-    g++ -std=c++17 -Wshadow -Wall "$@" -02 -Wno-unused-result
-}
-
-function build_multiple(){
-    g++ -std=c++17 -Wshadow -Wall "$@" -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
-}
-
 function zle-line-init zle-keymap-select {
     VIM_NORMAL_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
     VIM_INSERT_PROMPT="%{$fg_bold[green]%} [% INSERT]%  %{$reset_color%}"

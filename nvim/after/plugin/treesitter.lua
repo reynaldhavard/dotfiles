@@ -5,6 +5,7 @@ require('nvim-treesitter.configs').setup {
     },
     yati = {
         enable = true,
+        disable = { "yaml" },
 
 
         -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
@@ -18,7 +19,8 @@ require('nvim-treesitter.configs').setup {
         default_fallback = "auto"
     },
     indent = {
-        enable = false -- disable builtin indent module
+        enable = false, -- disable builtin indent module
+        disable = { "yaml" },
     }
 }
 
